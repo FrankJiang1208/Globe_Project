@@ -38,6 +38,8 @@ const sphere = new THREE.Mesh(
     }
   })
 )
+scene.add(sphere)
+
 
 // create atmosphere
 const atmosphere = new THREE.Mesh(
@@ -45,16 +47,15 @@ const atmosphere = new THREE.Mesh(
   new THREE.ShaderMaterial({
     vertexShader: atmosphereVertexShader,
     fragmentShader: atmosphereFragmentShader,
-    blending: THREE.AdditiveBlending,
-    side: THREE.BackSide
+    // blending: THREE.AdditiveBlending,
+    // side: THREE.BackSide
   })
 )
 
 atmosphere.scale.set(1.1, 1.1, 1.1)
-
 scene.add(atmosphere)
 
-scene.add(sphere)
+
 camera.position.z=15
 
 function animate(){

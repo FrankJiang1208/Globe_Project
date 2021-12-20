@@ -1,5 +1,6 @@
-varying vec3 vertexNormal; // (0, 0, 0)
+varying vec3 vertexNormal;
+
 void main() {
-  float intensity = pow(0.75 - dot(vertexNormal, vec3(0, 0, 1.0)), 2.0);
-  gl_FragColor = vec4(0.3, 0.6, 1.0, 1.0) * intensity;
+  vertexNormal = normalize(normalMatrix * normal);
+  gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 0.9 );
 }
